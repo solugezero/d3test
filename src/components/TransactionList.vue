@@ -16,16 +16,12 @@
 </template>
   
 <script setup lang="ts">
-import moment from "moment"
-import { onBeforeMount, onMounted, toRefs } from "vue";
+import { getValidDate } from "@/helpers/DateValidator"
+import { onBeforeMount, toRefs } from "vue";
 import { useTransactions } from "@/stores/transactions";
 
 const transactionStore = useTransactions()
 const { transactions, isLoading } = toRefs(transactionStore)
-
-const getValidDate = (date: Date) => {
-    return moment(date).format('DD.MM.YYYY HH:mm')
-}
 
 onBeforeMount(async (): Promise<void> => {
     await transactionStore.getTransactions()

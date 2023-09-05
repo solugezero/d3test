@@ -5,14 +5,7 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import TransactionList from './components/TransactionList.vue';
 import WalletConnection from './components/WalletConnection.vue';
-
-export default {
-  components: {
-    TransactionList,
-    WalletConnection,
-  },
-};
 </script>
